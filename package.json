@@ -1,13 +1,13 @@
 {
   "name": "nae-react-auth",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "nae auth",
   "author": "newageerp",
   "license": "MIT",
   "repository": "newageerp/nae-react-auth",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
-  "source": "src/index.tsx",
+  "source": "src/index.ts",
   "engines": {
     "node": ">=10"
   },

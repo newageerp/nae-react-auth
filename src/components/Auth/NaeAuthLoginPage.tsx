@@ -3,7 +3,7 @@ import { Button, Card, Col, Container, Form, Row } from 'react-bootstrap'
 import { useHistory } from 'react-router-dom'
 import NaeApiAuth from '../../service/NaeApiAuth'
 
-export default function LoginPage() {
+export default function NaeAuthLoginPage() {
   const history = useHistory()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')

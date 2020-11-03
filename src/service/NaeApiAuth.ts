@@ -2,9 +2,9 @@ class NaeApiAuthService {
   private baseUrl: string
 
   constructor() {
-    this.baseUrl = '/app'
+    this.baseUrl = '/app/auth'
     if (process.env.NODE_ENV === 'development') {
-      this.baseUrl = 'http://localhost:8000/app'
+      this.baseUrl = 'http://localhost:8000/app/auth'
     }
   }
 
@@ -23,7 +23,7 @@ class NaeApiAuthService {
       body: JSON.stringify({ email, password })
     }
 
-    return fetch(this.baseUrl + '/auth/login', requestOptions).then((res) =>
+    return fetch(this.baseUrl + '/login', requestOptions).then((res) =>
       res.json()
     )
   }
@@ -34,7 +34,7 @@ class NaeApiAuthService {
       body: JSON.stringify({ email, password, passwordRepeat })
     }
 
-    return fetch(this.baseUrl + '/auth/register', requestOptions).then((res) =>
+    return fetch(this.baseUrl + '/register', requestOptions).then((res) =>
       res.json()
     )
   }
