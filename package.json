@@ -1,6 +1,6 @@
 {
   "name": "nae-react-auth",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "nae auth",
   "author": "newageerp",
   "license": "MIT",
@@ -62,6 +62,7 @@
     "dist"
   ],
   "dependencies": {
+    "nae-react-core-styles": "0.0.1",
     "react-bootstrap": "^1.4.0",
     "react-router-dom": "^5.2.0"
   }

@@ -1,10 +1,13 @@
-import React from 'react'
-
-import { ExampleComponent } from 'nae-react-auth'
-import 'nae-react-auth/dist/index.css'
+import React, {Fragment} from 'react'
+import {NaeAuthLoginPage, NaeAuthRegisterPage} from "nae-react-auth";
 
 const App = () => {
-  return <ExampleComponent text="Create React Library Example 😄" />
+  return <Fragment>
+
+    <NaeAuthLoginPage/>
+    <NaeAuthRegisterPage/>
+
+  </Fragment>
 }
 
 export default App
