@@ -38,6 +38,13 @@ class NaeApiAuthService {
       res.json()
     )
   }
+
+  doLogout = () => {
+    return new Promise((resolve) => {
+      window.localStorage.setItem('token', '')
+      resolve()
+    })
+  }
 }
 
 const NaeApiAuth = new NaeApiAuthService()

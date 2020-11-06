@@ -1,8 +1,10 @@
 import React, {Fragment} from 'react'
-import {NaeAuthLoginPage, NaeAuthRegisterPage} from "nae-react-auth";
+import {NaeAuthLoginPage, NaeAuthLogoutBtn, NaeAuthRegisterPage} from "nae-react-auth";
 
 const App = () => {
   return <Fragment>
+
+    <NaeAuthLogoutBtn/>
 
     <NaeAuthLoginPage/>
     <NaeAuthRegisterPage/>
