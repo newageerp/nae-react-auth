@@ -3,7 +3,34 @@ import { Button, Card, Col, Container, Form, Row } from 'react-bootstrap'
 import { useHistory } from 'react-router-dom'
 import NaeApiAuth from '../../service/NaeApiAuth'
 
-export default function NaeAuthRegisterPage() {
+const texts = {
+  en: {
+    form: 'Sign up form',
+    email: 'E-mail',
+    password: 'Password',
+    repeatPassword: 'Repeat password',
+    alreadyMember: 'Already have an account?',
+    login: 'Login',
+    signup: 'Sign up'
+  },
+  lt: {
+    form: 'Registracija',
+    email: 'El. paštas',
+    password: 'Slaptažodis',
+    repeatPassword: 'Pakartokite slaptažodį',
+    alreadyMember: 'Jau turite paskyrą?',
+    login: 'Prisijungti',
+    signup: 'Registruotis'
+  }
+}
+
+interface Props {
+  lang?: string
+}
+
+export default function NaeAuthRegisterPage(props: Props) {
+  const { lang = 'en' } = props
+
   const history = useHistory()
 
   const [email, setEmail] = useState('')
@@ -34,11 +61,11 @@ export default function NaeAuthRegisterPage() {
           <Col sm={3} />
           <Col>
             <Card>
-              <Card.Header>Sign up form</Card.Header>
+              <Card.Header>{texts[lang].form}</Card.Header>
               <Card.Body>
                 <Form>
                   <Form.Group>
-                    <Form.Label>E-mail:</Form.Label>
+                    <Form.Label>{texts[lang].email}:</Form.Label>
 
                     <Form.Control
                       value={email}
@@ -46,7 +73,7 @@ export default function NaeAuthRegisterPage() {
                     />
                   </Form.Group>
                   <Form.Group>
-                    <Form.Label>Password:</Form.Label>
+                    <Form.Label>{texts[lang].password}:</Form.Label>
 
                     <Form.Control
                       type='password'
@@ -55,7 +82,7 @@ export default function NaeAuthRegisterPage() {
                     />
                   </Form.Group>
                   <Form.Group>
-                    <Form.Label>Repeat password:</Form.Label>
+                    <Form.Label>{texts[lang].repeatPassword}:</Form.Label>
 
                     <Form.Control
                       type='password'
@@ -69,7 +96,7 @@ export default function NaeAuthRegisterPage() {
                 <Row>
                   <Col className='v-center'>
                     <p>
-                      Already have an account?{' '}
+                      {texts[lang].alreadyMember}{' '}
                       <a
                         href='/login'
                         onClick={(e) => {
@@ -77,7 +104,7 @@ export default function NaeAuthRegisterPage() {
                           goToLogin()
                         }}
                       >
-                        Login
+                        {texts[lang].login}
                       </a>
                     </p>
                   </Col>
@@ -87,7 +114,7 @@ export default function NaeAuthRegisterPage() {
                       variant='primary'
                       onClick={() => doRegister()}
                     >
-                      Sign up
+                      {texts[lang].signup}
                     </Button>
                   </Col>
                 </Row>

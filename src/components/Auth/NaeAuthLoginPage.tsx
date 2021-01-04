@@ -3,7 +3,31 @@ import { Button, Card, Col, Container, Form, Row } from 'react-bootstrap'
 import { useHistory } from 'react-router-dom'
 import NaeApiAuth from '../../service/NaeApiAuth'
 
-export default function NaeAuthLoginPage() {
+const texts = {
+  en: {
+    form: 'Login form',
+    username: 'Username',
+    password: 'Password',
+    login: 'Login',
+    newMember: 'New member?',
+    signup: 'Sign up'
+  },
+  lt: {
+    form: 'Prisijungimas',
+    username: 'Vartotojas',
+    password: 'Slaptažodis',
+    login: 'Prisijungti',
+    newMember: 'Naujas vartotojas?',
+    signup: 'Registruotis'
+  }
+}
+
+interface Props {
+  lang?: string
+}
+
+export default function NaeAuthLoginPage(props: Props) {
+  const { lang = 'en' } = props
   const history = useHistory()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -32,11 +56,11 @@ export default function NaeAuthLoginPage() {
           <Col sm={3} />
           <Col>
             <Card>
-              <Card.Header>Login form</Card.Header>
+              <Card.Header>{texts[lang].form}</Card.Header>
               <Card.Body>
                 <Form>
                   <Form.Group>
-                    <Form.Label>Username:</Form.Label>
+                    <Form.Label>{texts[lang].username}:</Form.Label>
 
                     <Form.Control
                       value={email}
@@ -44,7 +68,7 @@ export default function NaeAuthLoginPage() {
                     />
                   </Form.Group>
                   <Form.Group>
-                    <Form.Label>Password:</Form.Label>
+                    <Form.Label>{texts[lang].password}:</Form.Label>
 
                     <Form.Control
                       type='password'
@@ -58,7 +82,7 @@ export default function NaeAuthLoginPage() {
                 <Row>
                   <Col className='v-center'>
                     <p>
-                      New member?{' '}
+                      {texts[lang].newMember}{' '}
                       <a
                         href='/register'
                         onClick={(e) => {
@@ -66,7 +90,7 @@ export default function NaeAuthLoginPage() {
                           goToSignUp()
                         }}
                       >
-                        Sign up
+                        {texts[lang].signup}
                       </a>
                     </p>
                   </Col>
@@ -76,7 +100,7 @@ export default function NaeAuthLoginPage() {
                       variant='primary'
                       onClick={() => doLogin()}
                     >
-                      Login
+                      {texts[lang].login}
                     </Button>
                   </Col>
                 </Row>

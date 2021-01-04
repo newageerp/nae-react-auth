@@ -1,9 +1,23 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom'
+import {useHistory} from 'react-router-dom'
 import NaeApiAuth from '../../service/NaeApiAuth'
-import { Button } from 'react-bootstrap'
+import {Button} from 'react-bootstrap'
 
-export default function NaeAuthLogoutBtn() {
+const texts = {
+  en: {
+    logout: 'Logout'
+  },
+  lt: {
+    logout: 'Atsijungti'
+  }
+}
+
+interface Props {
+  lang?: string
+}
+
+export default function NaeAuthLogoutBtn(props: Props) {
+  const {lang = 'en'} = props
   const history = useHistory()
 
   const doLogout = () => {
@@ -14,7 +28,7 @@ export default function NaeAuthLogoutBtn() {
 
   return (
     <Button variant='outline-danger' onClick={doLogout}>
-      Logout
+      {texts[lang].logout}
     </Button>
   )
 }
