@@ -39,6 +39,17 @@ class NaeApiAuthService {
     )
   }
 
+  doRemind = (email: string) => {
+    const requestOptions = {
+      ...this.plainRequestOptions(),
+      body: JSON.stringify({ email })
+    }
+
+    return fetch(this.baseUrl + '/remind', requestOptions).then((res) =>
+      res.json()
+    )
+  }
+
   doLogout = () => {
     return new Promise((resolve) => {
       window.localStorage.setItem('token', '')
